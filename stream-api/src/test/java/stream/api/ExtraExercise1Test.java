@@ -37,7 +37,7 @@ public class ExtraExercise1Test {
         String[] words = new String[] {"Hello", "Stream"};
 
         /**
-         * Use Java 8 IntStream way to get each string separated by newline
+         * Use Java 8 way to get each string separated by newline
          */
 
         String result = null;
