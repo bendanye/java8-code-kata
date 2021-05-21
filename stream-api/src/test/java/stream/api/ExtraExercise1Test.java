@@ -1,16 +1,7 @@
 package stream.api;
 
 import common.test.tool.annotation.Easy;
-import common.test.tool.dataset.ClassicOnlineStore;
-import common.test.tool.entity.Shop;
 import org.junit.Test;
-
-import java.math.BigDecimal;
-import java.util.List;
-import java.util.stream.Collector;
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
-import java.util.stream.Stream;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
@@ -43,5 +34,17 @@ public class ExtraExercise1Test {
         String result = null;
 
         assertThat(result, is("Hello\nStream"));
+    }
+
+    @Easy @Test
+    public void sumOfEvenNumber() {
+
+        /**
+         * Use Java 8 stream to get sum of even numbers from 0-10
+         */
+
+        int result = 0;
+
+        assertThat(result, is(30));
     }
 }
