@@ -47,4 +47,17 @@ public class ExtraExercise1Test {
 
         assertThat(result, is(30));
     }
+    
+    @Easy @Test
+    public void reverseString() {
+
+        /**
+         * Use Java 8 stream to reverse the string, do not use any string reverse method
+         */
+        String original ="abcde";
+
+        String result = original;
+
+        assertThat(result, is("edcba"));
+    }
 }
