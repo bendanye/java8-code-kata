@@ -34,4 +34,13 @@ public class ExtraExercise2Test extends ClassicOnlineStore {
 
         assertThat(names, hasItems("DIANA", "ALICE", "ANDREW"));
     }
+    
+    @Test
+    public void groupByAge() {
+        List<Customer> customers = this.mall.getCustomerList();
+
+        Map<Integer, List<Customer>> results = null;
+
+        assertThat(results.keySet(), hasItems(32, 35, 36, 21, 38, 22, 26, 27, 28));
+    }
 }
