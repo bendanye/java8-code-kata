@@ -49,15 +49,35 @@ public class ExtraExercise1Test {
     }
     
     @Easy @Test
+    public void maxNumberInList() {
+
+        List<Integer> numbers = Arrays.asList(1, 8, 9, 10, 2, 5);
+        
+        int result = -1;
+
+        assertThat(result, is(10));
+    }
+    
+    @Easy @Test
     public void reverseString() {
 
         /**
          * Use Java 8 stream to reverse the string, do not use any string reverse method
          */
-        String original ="abcde";
+        String original = "abcde";
 
         String result = original;
 
         assertThat(result, is("edcba"));
+    }
+    
+    @Easy @Test
+    public void capitalizeFirstLetterEveryWord() {
+
+        String original = "this is a sentence";
+
+        String result = null;
+
+        assertThat(result, is("This Is A Sentence"));
     }
 }
