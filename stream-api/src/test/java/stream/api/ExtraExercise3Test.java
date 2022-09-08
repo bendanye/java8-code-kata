@@ -2,10 +2,9 @@ package stream.api;
 
 import org.junit.Test;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.math.BigDecimal;
+import java.util.*;
+import java.util.stream.Collectors;
 
 import static java.util.Arrays.asList;
 import static org.hamcrest.CoreMatchers.equalTo;
@@ -96,13 +95,23 @@ public class ExtraExercise3Test {
 
         String scoring = "abcde";
 
-        int result = scoring.toUpperCase()
-                .chars()
-                .mapToObj(i -> (char) i)
-                .map(j -> scoreMapping.get(j))
-                .mapToInt(Integer::intValue)
-                .sum();
+        int result = 0;
 
         assertThat(result, equalTo(1 + 2 + 3 + 4 + 5));
+    }
+
+    @Test
+    public void shouldGetListOfBigDecimal() {
+        double[] amounts = new double[] {1.0, 5.5, 7.8};
+
+        List<BigDecimal> result = Arrays.stream(amounts)
+                .mapToObj(BigDecimal::new)
+                .collect(Collectors.toList());
+
+        assertThat(result, equalTo(Arrays.asList(
+                new BigDecimal(1.0),
+                new BigDecimal(5.5),
+                new BigDecimal(7.8)
+        )));
     }
 }
