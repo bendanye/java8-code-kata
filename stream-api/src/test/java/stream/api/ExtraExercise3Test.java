@@ -3,7 +3,9 @@ package stream.api;
 import org.junit.Test;
 
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import static java.util.Arrays.asList;
 import static org.hamcrest.CoreMatchers.equalTo;
@@ -81,5 +83,21 @@ public class ExtraExercise3Test {
         List<String> result = null;
 
         assertThat(result, contains("Duke", "Fred", "John", "George", "Paal"));
+    }
+
+    @Test
+    public void shouldGetCorrectSum() {
+        Map<Character, Integer> scoreMapping = new HashMap<>();
+        scoreMapping.put('A', 1);
+        scoreMapping.put('B', 2);
+        scoreMapping.put('C', 3);
+        scoreMapping.put('D', 4);
+        scoreMapping.put('E', 5);
+
+        String scoring = "abcde";
+
+        int result = 0;
+
+        assertThat(result, equalTo(1 + 2 + 3 + 4 + 5));
     }
 }
