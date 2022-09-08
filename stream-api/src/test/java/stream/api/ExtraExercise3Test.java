@@ -3,9 +3,9 @@ package stream.api;
 import org.junit.Test;
 
 import java.util.Arrays;
-import java.util.Collection;
+import java.util.HashMap;
 import java.util.List;
-import java.util.stream.Collectors;
+import java.util.Map;
 
 import static java.util.Arrays.asList;
 import static org.hamcrest.CoreMatchers.equalTo;
@@ -24,7 +24,7 @@ public class ExtraExercise3Test {
     public void shouldMapStringsToUpperCase() {
         List<String> input = asList("This", "is", "java", "8");
 
-        List<String> result = input.stream().map(String::toUpperCase).collect(Collectors.toList());
+        List<String> result = null;
 
         assertThat(result, contains("THIS", "IS", "JAVA", "8"));
     }
@@ -33,7 +33,7 @@ public class ExtraExercise3Test {
     public void shouldRemoveElementsWithMoreThanThreeCharacters() {
         List<String> input = asList("This", "is", "java", "8");
 
-        List<String> result = input.stream().filter(s -> s.length() <= 3).collect(Collectors.toList());
+        List<String> result = null;
 
         assertThat(result, contains("is", "8"));
     }
@@ -42,7 +42,7 @@ public class ExtraExercise3Test {
     public void shouldSortStrings() throws Exception {
         List<String> input = Arrays.asList("C", "F", "A", "D", "B", "E");
 
-        List<String> result = input.stream().sorted().collect(Collectors.toList());
+        List<String> result = null;
 
         assertThat(result, is(equalTo(Arrays.asList("A", "B", "C", "D", "E", "F"))));
     }
@@ -51,7 +51,7 @@ public class ExtraExercise3Test {
     public void shouldSortIntegers() throws Exception {
         List<String> input = Arrays.asList("2", "4", "12", "3");
 
-        List<Integer> result = input.stream().map(Integer::parseInt).sorted().collect(Collectors.toList());
+        List<Integer> result = null;
 
         assertThat(result, is(equalTo(Arrays.asList(2, 3, 4, 12))));
     }
@@ -60,7 +60,7 @@ public class ExtraExercise3Test {
     public void shouldSortIntegersInDescendingOrder() throws Exception {
         List<String> input = Arrays.asList("2", "4", "12", "3");
 
-        List<Integer> result = input.stream().map(Integer::parseInt).sorted((i1, i2) -> i2 - i1).collect(Collectors.toList());
+        List<Integer> result = null;
 
         assertThat(result, is(equalTo(Arrays.asList(12, 4, 3, 2))));
     }
@@ -69,7 +69,7 @@ public class ExtraExercise3Test {
     public void shouldSumIntegersInCollection() {
         List<Integer> input = asList(1, 2, 3, 4, 5);
 
-        Integer result = input.stream().mapToInt(Integer::intValue).sum();
+        Integer result = null;
 
         assertThat(result, equalTo(1 + 2 + 3 + 4 + 5));
     }
@@ -80,8 +80,29 @@ public class ExtraExercise3Test {
                 asList("Duke", "Fred"),
                 asList("John", "George", "Paal"));
 
-        List<String> result = input.stream().flatMap(Collection::stream).collect(Collectors.toList());
+        List<String> result = null;
 
         assertThat(result, contains("Duke", "Fred", "John", "George", "Paal"));
+    }
+
+    @Test
+    public void shouldGetCorrectSum() {
+        Map<Character, Integer> scoreMapping = new HashMap<>();
+        scoreMapping.put('A', 1);
+        scoreMapping.put('B', 2);
+        scoreMapping.put('C', 3);
+        scoreMapping.put('D', 4);
+        scoreMapping.put('E', 5);
+
+        String scoring = "abcde";
+
+        int result = scoring.toUpperCase()
+                .chars()
+                .mapToObj(i -> (char) i)
+                .map(j -> scoreMapping.get(j))
+                .mapToInt(Integer::intValue)
+                .sum();
+
+        assertThat(result, equalTo(1 + 2 + 3 + 4 + 5));
     }
 }
