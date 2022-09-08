@@ -13,6 +13,7 @@ import java.util.stream.IntStream;
 import java.util.stream.LongStream;
 import java.util.stream.Stream;
 
+import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.*;
 
@@ -30,6 +31,15 @@ public class Exercise7Test extends ClassicOnlineStore {
         OptionalDouble average = null;
 
         assertThat(average.getAsDouble(), is(28.7));
+    }
+
+    @Easy @Test
+    public void totalAge() {
+        List<Customer> customerList = this.mall.getCustomerList();
+
+        int result = 0;
+
+        assertThat(result, is(287));
     }
 
     @Easy @Test
