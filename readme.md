@@ -65,7 +65,7 @@ Tests annotated with `@Difficult` are more difficult. :grin:
 
 ## Where are the answers?
 
-Check the 'solution' branch, but please try to solve by yourself at first.
+Check the 'solution' [branch](https://github.com/bendanye/java8-code-kata/tree/solution), but please try to solve by yourself at first.
 
 ## Modules
 
