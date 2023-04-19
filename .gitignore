@@ -2,3 +2,5 @@
 .idea/
 *.iml
 target/
+
+time_taken.txt
