@@ -23,7 +23,7 @@ public class ExtraExercise3Test {
     public void shouldMapStringsToUpperCase() {
         List<String> input = asList("This", "is", "java", "8");
 
-        List<String> result = null;
+        List<String> result = input.stream().map(String::toUpperCase).collect(Collectors.toList());
 
         assertThat(result, contains("THIS", "IS", "JAVA", "8"));
     }
@@ -32,7 +32,7 @@ public class ExtraExercise3Test {
     public void shouldRemoveElementsWithMoreThanThreeCharacters() {
         List<String> input = asList("This", "is", "java", "8");
 
-        List<String> result = null;
+        List<String> result = input.stream().filter(s -> s.length() < 3).collect(Collectors.toList());
 
         assertThat(result, contains("is", "8"));
     }
