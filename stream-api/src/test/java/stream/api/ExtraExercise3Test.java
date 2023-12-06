@@ -41,7 +41,7 @@ public class ExtraExercise3Test {
     public void shouldSortStrings() throws Exception {
         List<String> input = Arrays.asList("C", "F", "A", "D", "B", "E");
 
-        List<String> result = null;
+        List<String> result = input.stream().sorted(Comparator.naturalOrder()).collect(Collectors.toList());
 
         assertThat(result, is(equalTo(Arrays.asList("A", "B", "C", "D", "E", "F"))));
     }
@@ -50,7 +50,7 @@ public class ExtraExercise3Test {
     public void shouldSortIntegers() throws Exception {
         List<String> input = Arrays.asList("2", "4", "12", "3");
 
-        List<Integer> result = null;
+        List<Integer> result = input.stream().map(Integer::valueOf).sorted().collect(Collectors.toList());
 
         assertThat(result, is(equalTo(Arrays.asList(2, 3, 4, 12))));
     }
@@ -59,7 +59,7 @@ public class ExtraExercise3Test {
     public void shouldSortIntegersInDescendingOrder() throws Exception {
         List<String> input = Arrays.asList("2", "4", "12", "3");
 
-        List<Integer> result = null;
+        List<Integer> result = input.stream().map(Integer::valueOf).sorted(Comparator.reverseOrder()).collect(Collectors.toList());
 
         assertThat(result, is(equalTo(Arrays.asList(12, 4, 3, 2))));
     }
@@ -68,7 +68,7 @@ public class ExtraExercise3Test {
     public void shouldSumIntegersInCollection() {
         List<Integer> input = asList(1, 2, 3, 4, 5);
 
-        Integer result = null;
+        Integer result = input.stream().mapToInt(Integer::intValue).sum();
 
         assertThat(result, equalTo(1 + 2 + 3 + 4 + 5));
     }
@@ -79,7 +79,7 @@ public class ExtraExercise3Test {
                 asList("Duke", "Fred"),
                 asList("John", "George", "Paal"));
 
-        List<String> result = null;
+        List<String> result = input.stream().flatMap(List::stream).collect(Collectors.toList());
 
         assertThat(result, contains("Duke", "Fred", "John", "George", "Paal"));
     }
