@@ -95,7 +95,9 @@ public class ExtraExercise3Test {
 
         String scoring = "abcde";
 
-        int result = 0;
+        int result = scoring.chars().mapToObj(c -> (char) c)
+                .map(c -> scoreMapping.get(Character.toUpperCase(c)))
+                .reduce(0, Integer::sum);
 
         assertThat(result, equalTo(1 + 2 + 3 + 4 + 5));
     }
